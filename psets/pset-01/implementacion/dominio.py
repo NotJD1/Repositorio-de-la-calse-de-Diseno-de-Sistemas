@@ -30,26 +30,35 @@ class Usuario:
 # Herencia
 class Estudiante(Usuario):
     def __init__(self,  nombre, contrasena, codigo_estudiante, mail):
+
+        super().__init__(nombre, contrasena)  
+
         self.codigo_estudiante = codigo_estudiante
         self.mail = mail
         sin_prioridad = SinPrioridad()  # Instancia de SinPrioridad para el estudiante
-        super().__init__(nombre, contrasena, sin_prioridad)  
+
 
 
 class Capitan(Usuario):
     def __init__(self, nombre, contrasena, deporte, fecha_inicial, fecha_final):
+
+        super().__init__(nombre, contrasena)
+
         self.deporte = deporte
         self.fecha_inicial = fecha_inicial
         self.fecha_final = fecha_final
         con_prioridad = ConPrioridad()  # Instancia de ConPrioridad para el capitán
-        super().__init__(nombre, contrasena, con_prioridad)
+        
 
 
 class Administrador(Usuario):
     def __init__(self, nombre, contrasena, mail):
+
+        super().__init__(nombre, contrasena)
+        
         self.mail = mail
         prioridad = SinPrioridad()
-        super().__init__(nombre, contrasena, prioridad)
+        
 
     def gestionar_cancha(self, cancha, estado):
         cancha.estado = estado
